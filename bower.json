@@ -1,0 +1,21 @@
+{
+  "name": "alpha4team",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Anzhelo Petkov <rapid3fighter@hotmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.7"
+  }
+}

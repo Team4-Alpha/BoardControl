@@ -1,0 +1,13 @@
+body{
+    background-color: lightcyan;
+}
+
+.container-fluid{
+    opacity: 1;
+}
+
+.container-fluid>img{
+    height: 50px;
+    display: block;
+    margin: auto;
+}
