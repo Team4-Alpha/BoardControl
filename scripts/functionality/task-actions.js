@@ -1,11 +1,16 @@
-const taskFunc = function (category) {
+const taskFunc = function (factory, database) {
 
-    const addTask = function(task){
-        task.category = category;
+    const addTask = function(name, description){
+        const task = factory.createTask(name, description);
+        database.tasks.push(task);
+        //Test
+        console.log(database.tasks);
         //TODO
     }
 
-    const deleteTask = function(task){
+    const deleteTask = function(name, description){
+        const i = database.indexOf(category);
+        database.splice(index, 1);
         //TODO
     }
 

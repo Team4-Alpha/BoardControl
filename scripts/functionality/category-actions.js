@@ -1,19 +1,25 @@
 const categoryFunc = function (factory, database) {
     
-    let index = 0;
+    const categories = database.categories;
 
     const addCategory = function(name){
+        for (var i = 0; i < categories.length; i++) {
+            if (categories[i] === name) {
+                alert('You cant have categories with the same name!');
+                return;
+            }
+        }
         const cat = factory.createCategory(name);
-        database.categories.push(cat);
-        console.log(database.categories[0]);
-        //TODO
-        //Appending the category div
+        categories.push(cat);
+        console.log(categories[0]);
     }
 
     const deleteCategory = function(name){
-        const i = database.indexOf(category);
-        database.splice(index, 1);
-        //Truncate the specific category div
+        for (var i = 0; i < categories.length; i++) {
+            if (categories[i].name === name) {
+                categories.splice(i, 1);
+            }
+        }
     }
 
     return{
