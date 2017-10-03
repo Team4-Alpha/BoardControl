@@ -1,5 +1,5 @@
 const databaseFunc = function () {
     return {
-        tasks: [],
+        categories: []
     }
 }

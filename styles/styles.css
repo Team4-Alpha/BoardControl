@@ -1,5 +1,5 @@
 body{
-    background-color: lightcyan;
+    background-color: #d9edf7 !important;
 }
 
 .container-fluid{
@@ -10,6 +10,13 @@ body{
     height: 50px;
     display: block;
     margin: auto;
+}
+
+.btn.btn-primary{
+    display: block;
+    float: right;
+    
+
 }
 
 .nav {

@@ -13,20 +13,53 @@
 <body>
     <nav class="navbar navbar-inverse">
         <div class="container-fluid">
-            <img src="images/trello-logo-blue.png" alt="">
+            <img src="images/board-control-logo.png" alt="">
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create Category</button>
         </div>
-        <div class="nav">
+        <!-- <div class="nav">
             <a href="#category">Category</a>
             <a href="#add">Add</a>
             
-          </div>
+        </div> -->
+
     </nav>
+
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">Our Personal Board</div>
+            <div class="panel-body"></div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Create Category</h4>
+                </div>
+                <div class="modal-body">
+                    <label for="name">Name:</label>
+                    <input type="text" class="form-control" id="name">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" id="create-category" class="btn btn-default" data-dismiss="modal">Create</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
     <script src="scripts/database/database.js"></script>
     <script src="scripts/factories/factory.js"></script>
+    <script src="scripts/functionality/category-actions.js"></script>
+    <script src="scripts/functionality/task-actions.js"></script>
+    <script src="scripts/startup.js"></script>
 
 </body>
 
