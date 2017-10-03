@@ -11,26 +11,14 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-inverse">
-        <div class="container-fluid">
-            <img src="images/board-control-logo.png" alt="">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create Category</button>
-        </div>
-        <!-- <div class="nav">
-            <a href="#category">Category</a>
-            <a href="#add">Add</a>
-            
-        </div> -->
+    <nav class="navbar navbar-inverse"></nav>
+    <img src="images/board-control-logo.png" id="logo">
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Create Category</button>
 
-    </nav>
+    <h2> <span class="label label-default">Custom Board</span></h2>
 
-    <div class="panel-group">
-        <div class="panel panel-default">
-            <div class="panel-heading">Our Personal Board</div>
-            <div class="panel-body"></div>
-        </div>
-    </div>
-
+    <div id="result"></div>
+    
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
         <div class="modal-dialog">
@@ -42,8 +30,8 @@
                     <h4 class="modal-title">Create Category</h4>
                 </div>
                 <div class="modal-body">
-                    <label for="name">Name:</label>
-                    <input type="text" class="form-control" id="name">
+                    <label for="category-name">Name:</label>
+                    <input type="text" class="form-control" id="category-name">
                 </div>
                 <div class="modal-footer">
                     <button type="button" id="create-category" class="btn btn-default" data-dismiss="modal">Create</button>
@@ -59,6 +47,7 @@
     <script src="scripts/factories/factory.js"></script>
     <script src="scripts/functionality/category-actions.js"></script>
     <script src="scripts/functionality/task-actions.js"></script>
+    <script src="scripts/container.js"></script>
     <script src="scripts/startup.js"></script>
 
 </body>

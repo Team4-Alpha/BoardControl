@@ -2,21 +2,36 @@ body{
     background-color: #d9edf7 !important;
 }
 
-.container-fluid{
-    opacity: 1;
+.navbar.navbar-inverse{ 
+    opacity: 0.8;
 }
 
-.container-fluid>img{
-    height: 50px;
+img#logo{
+    width: 230px;
     display: block;
+    position: relative;
     margin: auto;
+    top: -5em;
+    max-width: 100%;
 }
 
 .btn.btn-primary{
+    max-width: 100%;
     display: block;
     float: right;
-    
+    position: relative;
+    top: -8em;
+    left: -1em;
+}
 
+h2{
+    position: relative;
+    top: -2.5em;
+}
+
+.label.label-default{
+    background-color: lightblue;
+    
 }
 
 .nav {
