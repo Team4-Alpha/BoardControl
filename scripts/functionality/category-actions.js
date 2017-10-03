@@ -5,7 +5,7 @@ const categoryFunc = function (factory, database) {
     const addCategory = function(name){
         const cat = factory.createCategory(name);
         database.categories.push(cat);
-        console.log(database.categories[0].name);
+        console.log(database.categories[0]);
         //TODO
         //Appending the category div
     }
