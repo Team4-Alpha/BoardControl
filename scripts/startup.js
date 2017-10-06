@@ -5,13 +5,11 @@ $(function(){
     const taskDescription = $('#task-description');
 
     const board = $('#board');
-    $('#create-category').on('click',() => {
-        container.categoryAct.addCategory(categoryName.val());
-        
-        board.append(`<div class='panel panel-default category'>
-                          <div class='panel-heading'>${categoryName.val()}
-                          <button type='button' class='btn btn-danger' add-task'>Delete</button>
-                          </div>
+    $('#create-category').on('click',() => {      
+        try{
+            container.categoryAct.addCategory(categoryName.val());
+            board.append(`<div class='panel panel-default category'>    
+                          <div class='panel-heading'>${categoryName.val()}</div>
                           <div class='panel-body category-body'></div>
                           <div class='footer'>
                                <input type='text' class='form-control task-name'>
@@ -23,20 +21,32 @@ $(function(){
             
 
             $('.add-task').on('click',(event) => {
-                const taskName = $(event.target.previousElementSibling);
-                container.taskAct.addTask(taskName.val());
-                let categoryBody = $(event.target.parentElement.previousElementSibling);
-
-                categoryBody.append(`<div class='task-model'>${taskName.val()}</div>`);
-                taskName.val('');     
-                categoryBody.on('click',() => {
-                    console.log(taskName.val());
-
-            $('#delete-category').on('click',() => {
-                        container.categoryAct.deleteCategory();  
-                });
-            })
+                try{
+                    const taskName = $(event.target.previousElementSibling);
+                    container.taskAct.addTask(taskName.val());
+                    const categoryBody = $(event.target.parentElement.previousElementSibling);
     
-        })
+                    categoryBody.append(`<div class='task-model'>${taskName.val()}</div>`);
+                    taskName.val('');     
+
+                    const tasksModels =$(categoryBody.children());
+
+                    tasksModels.on('click',() => {
+                        console.log(taskName.val());
+                    });
+                }
+                catch (taskErr){
+                    alert(taskErr);
+                }     
+            })
+        }
+        catch (categoryErr){
+            alert(categoryErr);
+        }
+        
+    })
+
+    $('#delete-category').on('click',() => {
+        container.categoryAct.deleteCategory();   
     })
 })
