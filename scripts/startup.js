@@ -5,27 +5,27 @@ $(function(){
     const taskDescription = $('#task-description');
     const notes= $("myInput");
 
+    const board = $('#board');
     $('#create-category').on('click',() => {
         container.categoryAct.addCategory(categoryName.val());
         
-        $(`<div id="myDIV" class="header">
-                <h2>${categoryName.val()}</h2>
-                <input type="text" id="myInput" placeholder="Title...">
-                <button type="button" id="taskbtn" 
-                    >Add
-                </button>
-           </div>
-         <ul id="myUL">
-            </ul>`).appendTo('#wrapper');
+        board.append(`<div class="panel panel-default category">
+                          <div class="panel-heading">${categoryName.val()}</div>
+                          <div class="panel-body category-body"></div>
+                          <div class="footer">
+                               <input type="text" class="form-control task-name">
+                               <button type="button" class="btn btn-primary add-task">Add</button>
+                          </div>    
+                      </div>`);
             $("#category-name").val('');
 
-       
+            const categoryBody = $('.category-body');
 
-            $('#taskbtn').on('click',() => {
-                $(` <li>${notes.val()}</li>
-                        <button id="deletebtn" >Delete</button>
-                 `).appendTo('#myUL');
-                    $("#myInput").val('');
+            categoryBody.app
+            $('.add-task').on('click',() => {
+                categoryBody.append(`<div>asd</div>`);
+        
+                 $("#task-name").val('');
                
                
             })
