@@ -21,7 +21,7 @@ $(function(){
 
        
     })
-    
+
     $('#taskbtn').on('click',() => {
         $(` <li>${notes.val()}</li>
                 <button id="deletebtn" >Delete</button>
