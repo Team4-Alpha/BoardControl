@@ -81,7 +81,9 @@ input {
 #myInput{
 color: black;
 }
-/* .form-control{
-   width: 73%!important;
-   
-} */
+
+.btn-danger{
+    float: right;
+    padding: 0px;
+    
+}

@@ -9,7 +9,9 @@ $(function(){
         container.categoryAct.addCategory(categoryName.val());
         
         board.append(`<div class='panel panel-default category'>
-                          <div class='panel-heading'>${categoryName.val()}</div>
+                          <div class='panel-heading'>${categoryName.val()}
+                          <button type='button' class='btn btn-danger' add-task'>Delete</button>
+                          </div>
                           <div class='panel-body category-body'></div>
                           <div class='footer'>
                                <input type='text' class='form-control task-name'>
@@ -29,11 +31,12 @@ $(function(){
                 taskName.val('');     
                 categoryBody.on('click',() => {
                     console.log(taskName.val());
+
+            $('#delete-category').on('click',() => {
+                        container.categoryAct.deleteCategory();  
                 });
             })
-    })
-
-    $('#delete-category').on('click',() => {
-        container.categoryAct.deleteCategory();   
+    
+        })
     })
 })
