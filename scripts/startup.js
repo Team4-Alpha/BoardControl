@@ -18,18 +18,20 @@ $(function(){
            </div>
          <ul id="myUL">
             </ul>`).appendTo('#wrapper');
-            document.getElementById("category-name").value="";
+            $("#category-name").val('');
        
+
+            $('#taskbtn').on('click',() => {
+                $(` <li>${notes.val()}</li>
+                        <button id="deletebtn" >Delete</button>
+                 `).appendTo('#myUL');
+                    $("#myInput").val('');
+               
+               
+            })
     })
     
-    $('#taskbtn').on('click',() => {
-        $(` <li>${notes.val()}</li>
-                <button id="deletebtn" >Delete</button>
-         `).appendTo('#myUL');
-            document.getElementById("myInput").value="";
-       
-       
-    })
+    
 
 
     $('#delete-category').on('click',() => {
