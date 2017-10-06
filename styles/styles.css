@@ -49,6 +49,7 @@ h2{
 
 .add-task{
     float: right;
+    display:inline;
 }
 
 .close:hover {
@@ -62,6 +63,8 @@ h2{
     width: 200px;
     border: 2px solid;
     margin-right: 10px;
+    overflow:hidden;
+    height:1%;
 }
 
 /* Style the input */
@@ -76,4 +79,13 @@ input {
 
 #myInput{
 color: black;
+}
+.footer{
+  
+        
+}
+.form-control{
+    float: left;
+    display: inline;
+    overflow: auto;
 }
