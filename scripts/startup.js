@@ -6,8 +6,6 @@ $(function(){
     const notes= $("myInput");
 
     const board = $('#board');
-
-
     $('#create-category').on('click',() => {
         container.categoryAct.addCategory(categoryName.val());
         
@@ -41,9 +39,11 @@ $(function(){
         
     })
     
-    $('#create-task').on('click', () => {
-        
-        container.taskAct.createTask(taskName.val(), taskDescription.val());
-
+    $('#myTaskbut').on('click',() => {
+        //container.taskAct.addTask(taskName.val(), taskDescription.val());
+        $(`<div id="myTaskDIV">
+             <p>${taskInput.val()}</p>
+          </div>`).appendTo('#myDIV');
+    //document.getElementById("myInput").value="";
     })
 })
