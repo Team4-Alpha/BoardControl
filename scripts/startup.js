@@ -27,8 +27,8 @@ $(function(){
 
                 categoryBody.append(`<div class='task-model'>${taskName.val()}</div>`);
                 taskName.val('');     
-                $('#task-model').on('click',() => {
-                    
+                categoryBody.on('click',() => {
+                    console.log(taskName.val());
                 });
             })
     })
