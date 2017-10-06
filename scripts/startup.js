@@ -3,9 +3,7 @@ $(function(){
     const categoryName = $('#category-name');
     const taskName = $('#task-name');
     const taskDescription = $('#task-description');
-    const taskInput =$('#myInput');
-    
-
+    const notes= $("myInput");
 
     $('#create-category').on('click',() => {
         container.categoryAct.addCategory(categoryName.val());
@@ -13,7 +11,9 @@ $(function(){
         $(`<div id="myDIV" class="header">
                 <h2>${categoryName.val()}</h2>
                 <input type="text" id="myInput" placeholder="Title...">
-                <span id="myTaskbut" class="addBtn">Add</span>
+                <button type="button" id="taskbtn" 
+                    >Add
+                </button>
            </div>
          <ul id="myUL">
             </ul>`).appendTo('#wrapper');
@@ -22,6 +22,16 @@ $(function(){
        
     })
     
+    $('#taskbtn').on('click',() => {
+        $(` <li>${notes.val()}</li>
+                <button id="deletebtn" >Delete</button>
+         `).appendTo('#myUL');
+            document.getElementById("myInput").value="";
+       
+       
+    })
+
+
     $('#delete-category').on('click',() => {
         container.categoryAct.deleteCategory();
         

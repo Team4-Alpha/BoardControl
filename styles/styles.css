@@ -244,6 +244,7 @@ transition: 0.3s;
 background-color: #bbb;
 }
 
+<<<<<<< HEAD
 #myInput{
     color: black;
 }
@@ -251,4 +252,12 @@ background-color: #bbb;
 #myDIV{
     float: left;
     margin-right: 10px;
+=======
+#myDIV{
+    float: left;
+    margin-right: 10px;
+}
+#myInput{
+color: black;
+>>>>>>> 8e4e3872875e23f943d2c734201d190686823fc6
 }
