@@ -4,8 +4,8 @@ const categoryFunc = function (factory, database) {
 
     const addCategory = function(name){
         for (var i = 0; i < categories.length; i++) {
-            if (categories[i] === name) {
-                alert('You cant have categories with the same name!');
+            if (categories[i].name === name) {
+                throw 'You can\'t have categories with the same name!';
                 return;
             }
         }
