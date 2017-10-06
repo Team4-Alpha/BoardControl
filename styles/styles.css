@@ -15,7 +15,7 @@ img#logo{
     max-width: 100%;
 }
 
-.btn.btn-primary{
+.btn.btn-primary#add-category{
     max-width: 100%;
     display: block;
     float: right;
@@ -25,78 +25,43 @@ img#logo{
 }
 
 h2{
+    display: block;
     position: relative;
+    right: -0.3em;
+    top: -2.5em;
+}
+
+#board{
+    position: relative;
+    top: -5em;
+    padding: 9px;
 }
 
 .label.label-default{
     background-color: lightblue;
-    position: relative;  
+    position: relative;
 }
 
-.nav {
-    background-color: #333;
-    overflow: hidden;
-}
-
-.nav a {
+.task-title{
     float: left;
-    display: block;
-    color: #f2f2f2;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
+    width: 50px;
 }
 
-.nav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-.nav a.active {
-    background-color: #4CAF50;
-    color: white;
-}
-/* Include the padding and border in an element's total width and height */
-* {
-    box-sizing: border-box;
-}
-
-/* Style the close button */
-.close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 12px 16px 12px 16px;
+.add-task{
+    float: right;
 }
 
 .close:hover {
     background-color: #f44336;
-    color: white;
 }
 
-/* Style the header */
 .category {
-    background-color: #f44336;
-   position: absolute;
-   top: 100px;
-    color: white;
-    text-align: left;
-    width: 200px;
+    float: left;
+    border-radius: 2000px;
     height: 100px;
-    padding: 10px;
-    
-}
-.category p{
-    font-size: 20px;
-}
-/* Clear floats after the header */
-.category:after {
-    content: "";
-    display: table;
-    clear: both;
-    display: inline-block;
-    
+    width: 200px;
+    border: 2px solid;
+    margin-right: 10px;
 }
 
 /* Style the input */
@@ -109,155 +74,6 @@ input {
     font-size: 16px;
 }
 
-/* Style the "Add" button */
-.addBtn {
-    padding: 10px;
-    width: 30%;
-    height: 35px;
-    background: #d9d9d9;
-    color: #555;
-    float: left;
-    text-align: center;
-    font-size: 16px;
-    cursor: pointer;
-    transition: 0.3s;
-}
-
-.addBtn:hover {
-    background-color: #bbb;
-}
-
-
-
-
-/* Include the padding and border in an element's total width and height */
-* {
-box-sizing: border-box;
-}
-
-/* Remove margins and padding from the list */
-ul {
-margin: 0;
-padding: 0;
-}
-
-/* Style the list items */
-ul li {
-cursor: pointer;
-position: relative;
-padding: 12px 8px 12px 40px;
-background: #eee;
-font-size: 18px;
-transition: 0.2s;
-
-/* make the list items unselectable */
--webkit-user-select: none;
--moz-user-select: none;
--ms-user-select: none;
-user-select: none;
-}
-
-/* Set all odd list items to a different color (zebra-stripes) */
-ul li:nth-child(odd) {
-background: #f9f9f9;
-}
-
-/* Darker background-color on hover */
-ul li:hover {
-background: #ddd;
-}
-
-/* When clicked on, add a background color and strike out text */
-ul li.checked {
-background: #888;
-color: #fff;
-text-decoration: line-through;
-}
-
-/* Add a "checked" mark when clicked on */
-ul li.checked::before {
-content: '';
-position: absolute;
-border-color: #fff;
-border-style: solid;
-border-width: 0 2px 2px 0;
-top: 10px;
-left: 16px;
-transform: rotate(45deg);
-height: 15px;
-width: 7px;
-}
-
-/* Style the close button */
-.close {
-position: absolute;
-right: 0;
-top: 0;
-padding: 12px 16px 12px 16px;
-}
-
-.close:hover {
-background-color: #f44336;
-color: white;
-}
-
-/* Style the header */
-.header {
-background-color: #7C7878;
-padding: 30px 40px;
-color: white;
-text-align: center;
-width: 250px;
-border-radius: 10px;
-}
-
-/* Clear floats after the header */
-.header:after {
-content: "";
-display: table;
-clear: both;
-}
-
-/* Style the input */
-input {
-border: none;
-width: 75%;
-padding: 10px;
-float: left;
-font-size: 16px;
-}
-
-/* Style the "Add" button */
-.addBtn {
-padding: 10px;
-width: 25%;
-background: #d9d9d9;
-color: #555;
-float: left;
-text-align: center;
-font-size: 16px;
-cursor: pointer;
-transition: 0.3s;
-}
-
-.addBtn:hover {
-background-color: #bbb;
-}
-
-<<<<<<< HEAD
-#myInput{
-    color: black;
-}
-
-#myDIV{
-    float: left;
-    margin-right: 10px;
-=======
-#myDIV{
-    float: left;
-    margin-right: 10px;
-}
 #myInput{
 color: black;
->>>>>>> 8e4e3872875e23f943d2c734201d190686823fc6
 }

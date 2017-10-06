@@ -3,45 +3,37 @@ $(function(){
     const categoryName = $('#category-name');
     const taskName = $('#task-name');
     const taskDescription = $('#task-description');
-    const notes= $("myInput");
 
+    const board = $('#board');
     $('#create-category').on('click',() => {
         container.categoryAct.addCategory(categoryName.val());
         
-        $(`<div id="myDIV" class="header">
-                <h2>${categoryName.val()}</h2>
-                <input type="text" id="myInput" placeholder="Title...">
-                <button type="button" id="taskbtn" 
-                    >Add
-                </button>
-           </div>
-         <ul id="myUL">
-            </ul>`).appendTo('#wrapper');
-            document.getElementById("category-name").value="";
+        board.append(`<div class='panel panel-default category'>
+                          <div class='panel-heading'>${categoryName.val()}</div>
+                          <div class='panel-body category-body'></div>
+                          <div class='footer'>
+                               <input type='text' class='form-control task-name'>
+                               <button type='button' class='btn btn-primary add-task'>Add</button>
+                          </div>    
+                      </div>`);
+            $('#category-name').val('');
 
-       
+            
+
+            $('.add-task').on('click',(event) => {
+                const taskName = $(event.target.previousElementSibling);
+                container.taskAct.addTask(taskName.val());
+                let categoryBody = $(event.target.parentElement.previousElementSibling);
+
+                categoryBody.append(`<div class='task-model'>${taskName.val()}</div>`);
+                taskName.val('');     
+                $('#task-model').on('click',() => {
+                    
+                });
+            })
     })
-
-    $('#taskbtn').on('click',() => {
-        $(` <li>${notes.val()}</li>
-                <button id="deletebtn" >Delete</button>
-         `).appendTo('#myUL');
-            document.getElementById("myInput").value="";
-       
-       
-    })
-
 
     $('#delete-category').on('click',() => {
-        container.categoryAct.deleteCategory();
-        
-    })
-    
-    $('#myTaskbut').on('click',() => {
-        //container.taskAct.addTask(taskName.val(), taskDescription.val());
-        $(`<div id="myTaskDIV">
-             <p>${taskInput.val()}</p>
-          </div>`).appendTo('#myDIV');
-    //document.getElementById("myInput").value="";
+        container.categoryAct.deleteCategory();   
     })
 })
