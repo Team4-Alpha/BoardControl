@@ -26,15 +26,11 @@ img#logo{
 
 h2{
     position: relative;
-  
-   
 }
 
 .label.label-default{
     background-color: lightblue;
-    position: relative;
-  
-    
+    position: relative;  
 }
 
 .nav {
@@ -246,4 +242,13 @@ transition: 0.3s;
 
 .addBtn:hover {
 background-color: #bbb;
+}
+
+#myInput{
+    color: black;
+}
+
+#myDIV{
+    float: left;
+    margin-right: 10px;
 }

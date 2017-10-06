@@ -3,6 +3,7 @@ $(function(){
     const categoryName = $('#category-name');
     const taskName = $('#task-name');
     const taskDescription = $('#task-description');
+    const taskInput =$('#myInput');
     
 
 
@@ -12,11 +13,12 @@ $(function(){
         $(`<div id="myDIV" class="header">
                 <h2>${categoryName.val()}</h2>
                 <input type="text" id="myInput" placeholder="Title...">
-                <span onclick="newElement()" class="addBtn">Add</span>
+                <span id="myTaskbut" class="addBtn">Add</span>
            </div>
          <ul id="myUL">
             </ul>`).appendTo('#wrapper');
             document.getElementById("category-name").value="";
+
        
     })
     
@@ -25,9 +27,11 @@ $(function(){
         
     })
     
-    $('#create-task').on('click', () => {
-        
-        container.taskAct.createTask(taskName.val(), taskDescription.val());
-
+    $('#myTaskbut').on('click',() => {
+        //container.taskAct.addTask(taskName.val(), taskDescription.val());
+        $(`<div id="myTaskDIV">
+             <p>${taskInput.val()}</p>
+          </div>`).appendTo('#myDIV');
+    //document.getElementById("myInput").value="";
     })
 })
