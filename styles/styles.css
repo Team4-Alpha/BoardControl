@@ -247,3 +247,11 @@ transition: 0.3s;
 .addBtn:hover {
 background-color: #bbb;
 }
+
+#myDIV{
+    float: left;
+    margin-right: 10px;
+}
+#myInput{
+color: black;
+}
