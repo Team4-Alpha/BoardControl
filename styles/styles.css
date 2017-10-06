@@ -26,15 +26,11 @@ img#logo{
 
 h2{
     position: relative;
-  
-   
 }
 
 .label.label-default{
     background-color: lightblue;
-    position: relative;
-  
-    
+    position: relative;  
 }
 
 .nav {
@@ -248,10 +244,20 @@ transition: 0.3s;
 background-color: #bbb;
 }
 
+<<<<<<< HEAD
+#myInput{
+    color: black;
+}
+
+#myDIV{
+    float: left;
+    margin-right: 10px;
+=======
 #myDIV{
     float: left;
     margin-right: 10px;
 }
 #myInput{
 color: black;
+>>>>>>> 8e4e3872875e23f943d2c734201d190686823fc6
 }
