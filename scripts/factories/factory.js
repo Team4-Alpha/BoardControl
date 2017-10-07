@@ -10,9 +10,7 @@ const factoryFunc = function () {
 
     const createCategory = function (name) {
         return{
-            get name(){
-                return name;
-            }
+            name
         }
     }
 

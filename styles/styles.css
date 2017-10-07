@@ -82,8 +82,7 @@ input {
 color: black;
 }
 
-.btn-danger{
+.btn.btn-danger{
     float: right;
     padding: 0px;
-    
 }

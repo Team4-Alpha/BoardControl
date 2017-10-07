@@ -1,5 +1,24 @@
 const categoryFunc = function (factory, database) {
     
+    const isEquivalent = function (a, b) {
+
+        var aProps = Object.getOwnPropertyNames(a);
+        var bProps = Object.getOwnPropertyNames(b);
+
+        if (aProps.length != bProps.length) {
+            return false;
+        }
+    
+        for (var i = 0; i < aProps.length; i++) {
+            var propName = aProps[i];
+    
+            if (a[propName] !== b[propName]) {
+                return false;
+            }
+        }
+        return true;
+    }
+
     const categories = database.categories;
 
     const addCategory = function(name){
@@ -11,13 +30,15 @@ const categoryFunc = function (factory, database) {
         }
         const cat = factory.createCategory(name);
         categories.push(cat);
-        console.log(categories[0]);
     }
 
     const deleteCategory = function(name){
+        const categoryToBeDeleted = {name};
+        const categoriesSet = new Set(categories);
         for (var i = 0; i < categories.length; i++) {
-            if (categories[i].name === name) {
-                categories.splice(i, 1);
+            if (isEquivalent(categories[i], categoryToBeDeleted)) {
+                console.log(1);
+                categories.splice(categories[i], 1);
             }
         }
     }

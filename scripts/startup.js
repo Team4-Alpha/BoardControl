@@ -1,16 +1,15 @@
-
 $(function(){
     const categoryName = $('#category-name');
     const taskName = $('#task-name');
-    const taskDescription = $('#task-description');
 
     const board = $('#board');
     $('#create-category'). on('click',()=> {      
         try{
             container.categoryAct.addCategory(categoryName.val());
             board.append(`<div class='panel panel-default category'> 
-            <button class='btn-danger'>Delete</button> 
+            
                           <div class='panel-heading'>${categoryName.val()}
+                            <button class='btn btn-danger'>Delete</button> 
                           </div>
                           <div class='panel-body category-body'></div>
                           <div class='footer'>
@@ -33,8 +32,8 @@ $(function(){
 
                     const tasksModels =$(categoryBody.children());
 
-                    tasksModels.on('click',() => {
-                        console.log(taskName.val());
+                    tasksModels.on('click',(e) => {  
+                        console.log($(e.target).text());
 
                         
                     });
@@ -45,14 +44,25 @@ $(function(){
                     alert(taskErr);
                 }     
             })
+            $(".btn-danger").click(function(event) {
+                const tar = $(event.target.parentElement);
+                let i = 0;
+                let categoryToBeDeleted = '';
+                while (tar.text()[i] !== ' ') {
+                    categoryToBeDeleted += tar.text()[i];
+                    ++i;
+                }
+                const catPlz = categoryToBeDeleted.substring(0, i-1);
+
+                console.log(catPlz);
+                container.categoryAct.deleteCategory(catPlz);
+                $(event.target).parent().parent().remove();
+            });
         }
         catch (categoryErr){
             alert(categoryErr);
         }
-        $(".btn-danger").click(function(e) {
-            e.preventDefault();
-            $(this).parent().remove();
-        });
+        
     })
 
 })
