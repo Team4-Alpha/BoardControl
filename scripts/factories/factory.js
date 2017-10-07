@@ -2,9 +2,7 @@ const factoryFunc = function () {
 
     const createTask = function(name) {
         return{
-            get name(){
-                return name;
-            }
+            name
         }
     }
 

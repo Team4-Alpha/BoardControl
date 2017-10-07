@@ -8,15 +8,15 @@ $(function(){
             container.categoryAct.addCategory(categoryName.val());
             board.append(`<div class='panel panel-default category'> 
             
-                          <div class='panel-heading'>${categoryName.val()}
-                            <button class='btn btn-danger'>Delete</button> 
-                          </div>
-                          <div class='panel-body category-body'></div>
-                          <div class='footer'>
+                            <div class='panel-heading'>${categoryName.val()}
+                                <button class='btn btn-danger delete-category'>Delete</button> 
+                            </div>
+                            <div class='panel-body category-body'></div>
+                            <div class='footer'>
                                <input type='text' class='form-control task-name'>
                                <button type='button' class='btn btn-primary add-task'>Add</button>
-                          </div>    
-                      </div>`);
+                            </div>    
+                        </div>`);
             $('#category-name').val('');
 
             
@@ -28,19 +28,18 @@ $(function(){
                     const categoryBody = $(event.target.parentElement.previousElementSibling);
     
                     categoryBody.append(`<div class='task-model'>${taskName.val()}
-                    <span class="glyphicon glyphicon-remove"></span>
-                  </div>`);
+                                                <span class="glyphicon glyphicon-remove delete-task"></span>
+                                        </div>`);
                     taskName.val('');     
 
                     const tasksModels =$(categoryBody.children());
 
                     tasksModels.on('click',(e) => {  
-                        console.log($(e.target).text());
+                        console.log(e.target.innerText);
 
                         
                     });
-                    $('.glyphicon').click(function(e) {
-                        e.preventDefault();
+                    $('.delete-task').click(function(e) {
                         $(this).parent().remove();
                     });
                     
@@ -50,7 +49,7 @@ $(function(){
                     alert(taskErr);
                 }     
             })
-            $(".btn-danger").click(function(event) {
+            $('.delete-category').click(function(event) {
                 const tar = $(event.target.parentElement);
                 let i = 0;
                 let categoryToBeDeleted = '';
