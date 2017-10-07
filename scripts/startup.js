@@ -27,7 +27,9 @@ $(function(){
                     container.taskAct.addTask(taskName.val());
                     const categoryBody = $(event.target.parentElement.previousElementSibling);
     
-                    categoryBody.append(`<div class='task-model'>${taskName.val()}</div>`);
+                    categoryBody.append(`<div class='task-model'>${taskName.val()}
+                    <span class="glyphicon glyphicon-remove"></span>
+                  </div>`);
                     taskName.val('');     
 
                     const tasksModels =$(categoryBody.children());
@@ -36,6 +38,10 @@ $(function(){
                         console.log($(e.target).text());
 
                         
+                    });
+                    $('.glyphicon').click(function(e) {
+                        e.preventDefault();
+                        $(this).parent().remove();
                     });
                     
                    
@@ -64,5 +70,5 @@ $(function(){
         }
         
     })
-
+    
 })
