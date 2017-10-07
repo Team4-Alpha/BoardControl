@@ -54,13 +54,15 @@ $(function(){
                 const tar = $(event.target.parentElement);
                 let i = 0;
                 let categoryToBeDeleted = '';
+
+                //Taking exactly category name 
                 while (tar.text()[i] !== ' ') {
                     categoryToBeDeleted += tar.text()[i];
                     ++i;
                 }
+                //Im removing the last element because its appending one white-space
                 const catPlz = categoryToBeDeleted.substring(0, i-1);
 
-                console.log(catPlz);
                 container.categoryAct.deleteCategory(catPlz);
                 $(event.target).parent().parent().remove();
             });

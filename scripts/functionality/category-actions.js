@@ -37,7 +37,6 @@ const categoryFunc = function (factory, database) {
         const categoriesSet = new Set(categories);
         for (var i = 0; i < categories.length; i++) {
             if (isEquivalent(categories[i], categoryToBeDeleted)) {
-                console.log(1);
                 categories.splice(categories[i], 1);
             }
         }
