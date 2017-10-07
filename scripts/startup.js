@@ -5,11 +5,13 @@ $(function(){
     const taskDescription = $('#task-description');
 
     const board = $('#board');
-    $('#create-category').on('click',() => {      
+    $('#create-category'). on('click',()=> {      
         try{
             container.categoryAct.addCategory(categoryName.val());
-            board.append(`<div class='panel panel-default category'>    
-                          <div class='panel-heading'>${categoryName.val()}</div>
+            board.append(`<div class='panel panel-default category'> 
+            <button class='btn-danger'>Delete</button> 
+                          <div class='panel-heading'>${categoryName.val()}
+                          </div>
                           <div class='panel-body category-body'></div>
                           <div class='footer'>
                                <input type='text' class='form-control task-name'>
@@ -33,7 +35,11 @@ $(function(){
 
                     tasksModels.on('click',() => {
                         console.log(taskName.val());
+
+                        
                     });
+                    
+                   
                 }
                 catch (taskErr){
                     alert(taskErr);
@@ -43,10 +49,10 @@ $(function(){
         catch (categoryErr){
             alert(categoryErr);
         }
-        
+        $(".btn-danger").click(function(e) {
+            e.preventDefault();
+            $(this).parent().remove();
+        });
     })
 
-    $('#delete-category').on('click',() => {
-        container.categoryAct.deleteCategory();   
-    })
 })
