@@ -25,14 +25,31 @@ $(function(){
                     const taskName = $(event.target.previousElementSibling);
                     container.taskAct.addTask(taskName.val());
                     const categoryBody = $(event.target.parentElement.previousElementSibling);
-    
                     categoryBody.append(`<div class='task-model'>${taskName.val()}</div>`);
                     taskName.val('');     
 
                     const tasksModels =$(categoryBody.children());
+                        
+                    tasksModels.on('click',(event) => {
 
-                    tasksModels.on('click',() => {
-                        console.log(taskName.val());
+                        board.append(`<div id='myModal' class='modal2 fade' role='dialog'>
+                                        <div class="modal-dialog">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                    <h4 class="modal-title"></h4>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <p>Description.</p>
+                                                    <input type="text" class="form-control task-description">
+                                                </div>
+                                                <div class="modal-footer">
+                                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>`);
+                        console.log($(event.target).text());
                     });
                 }
                 catch (taskErr){
