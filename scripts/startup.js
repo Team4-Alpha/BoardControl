@@ -19,8 +19,6 @@ $(function(){
                         </div>`);
             $('#category-name').val('');
 
-            
-
             $('.add-task').on('click',(event) => {
                 try{
                     const taskName = $(event.target.previousElementSibling);
@@ -39,8 +37,22 @@ $(function(){
 
                         
                     });
+
                     $('.delete-task').click(function(e) {
-                        $(this).parent().remove();
+                        const tar = $(e.target.parentElement);
+                        let i = 0;
+                        let taskToBeDeleted = '';
+        
+                        //Taking exactly task name 
+                        while (tar.text()[i] !== ' ') {
+                            taskToBeDeleted += tar.text()[i];
+                            ++i;
+                        }
+                        //Im removing the last element because its appending one white-space
+                        const taskPlz = taskToBeDeleted.substring(0, i-1);
+                        
+                        container.taskAct.deleteTask(taskPlz);
+                        tar.remove();
                     });
                     
                    
