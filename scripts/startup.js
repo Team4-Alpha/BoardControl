@@ -19,45 +19,56 @@ $(function(){
                         </div>`);
             $('#category-name').val('');
 
-            
-
             $('.add-task').on('click',(event) => {
                 try{
                     const taskName = $(event.target.previousElementSibling);
                     container.taskAct.addTask(taskName.val());
                     const categoryBody = $(event.target.parentElement.previousElementSibling);
     
-                    categoryBody.append(`<div class='task-model'>${taskName.val()}
+                    categoryBody.append(`<div class='task-model' data-toggle="modal" data-target="#taskDescriptionModal">${taskName.val()}
                                                 <span class='glyphicon glyphicon-remove delete-task'></span>
                                         </div>`);
                     taskName.val('');     
 
                     const tasksModels =$(categoryBody.children());
                         
-                    // tasksModels.on('click',(event) => {
-
-                    //     board.append(`<div id='myModal' class='modal2 fade' role='dialog'>
-                    //                     <div class="modal-dialog">
-                    //                         <div class="modal-content">
-                    //                             <div class="modal-header">
-                    //                                 <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    //                                 <h4 class="modal-title"></h4>
-                    //                             </div>
-                    //                             <div class="modal-body">
-                    //                                 <p>Description.</p>
-                    //                                 <input type="text" class="form-control task-description">
-                    //                             </div>
-                    //                             <div class="modal-footer">
-                    //                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    //                             </div>
-                    //                         </div>
-                    //                     </div>
-                    //                  </div>`);
-                    //     console.log($(event.target).text());
-                    // });
+                    tasksModels.on('click',(event) => {
+                        thisTaskName = event.target.innerText;
+                        board.append(`<
+                        <div id="taskDescriptionModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                         <div class="modal-dialog">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">${thisTaskName}</h4>
+                              </div>
+                              <div class="modal-body">
+                              <h4>Description<h4>
+                              <input type="text" class="form-control" id="category-name">
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save</button>
+                              </div>
+                            </div>
+                          </div>`);
+                    });
 
                     $('.delete-task').click(function(e) {
-                        $(this).parent().remove();
+                        const tar = $(e.target.parentElement);
+                        let i = 0;
+                        let taskToBeDeleted = '';
+        
+                        //Taking exactly task name 
+                        while (tar.text()[i] !== ' ') {
+                            taskToBeDeleted += tar.text()[i];
+                            ++i;
+                        }
+                        //Im removing the last element because its appending one white-space
+                        const taskPlz = taskToBeDeleted.substring(0, i-1);
+                        
+                        container.taskAct.deleteTask(taskPlz);
+                        tar.remove();
                     });
                     
                    
