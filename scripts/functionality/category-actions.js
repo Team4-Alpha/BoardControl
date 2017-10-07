@@ -1,8 +1,12 @@
 const categoryFunc = function (factory, database) {
-    
+
     const categories = database.categories;
 
     const addCategory = function(name){
+        if (name==='') {
+            throw 'You can\'t have categories with empty name!';
+            return;
+        }
         for (var i = 0; i < categories.length; i++) {
             if (categories[i].name === name) {
                 throw 'You can\'t have categories with the same name!';
@@ -11,13 +15,13 @@ const categoryFunc = function (factory, database) {
         }
         const cat = factory.createCategory(name);
         categories.push(cat);
-        console.log(categories[0]);
     }
 
     const deleteCategory = function(name){
+        const categoryToBeDeleted = {name};
         for (var i = 0; i < categories.length; i++) {
-            if (categories[i].name === name) {
-                categories.splice(i, 1);
+            if (utilsFunc.isEquivalent(categories[i], categoryToBeDeleted)) {
+                categories.splice(categories[i], 1);
             }
         }
     }

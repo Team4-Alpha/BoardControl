@@ -1,4 +1,5 @@
 const container = (function(){
+
     const factory = factoryFunc();
     const database = databaseFunc();
     const categoryAct = categoryFunc(factory, database);
@@ -8,7 +9,7 @@ const container = (function(){
         factory,
         database,
         categoryAct,
-        taskAct
+        taskAct,
     }
     
 }())

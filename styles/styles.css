@@ -3,7 +3,7 @@ body{
 }
 
 .navbar.navbar-inverse{ 
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 img#logo{
@@ -50,7 +50,6 @@ h2{
 
 .add-task{
     float: right;
-    display:inline;
 }
 
 .close:hover {
@@ -59,31 +58,26 @@ h2{
 
 .category {
     float: left;
-    border-radius: 2000px;
     height: 100px;
     width: 200px;
-    border: 2px solid;
     margin-right: 10px;
     overflow:hidden;
     height:1%;
 }
 
-/* Style the input */
-input {
-    border: none;
-    width: 40%;
-    height: 35px;
-    padding: 10px;
-    float: left;
-    font-size: 16px;
-}
-
-#myInput{
-color: black;
-}
-
-.btn-danger{
+.btn.btn-danger{
     float: right;
-    padding: 0px;
-    
+    padding: 2px;
+}
+.glyphicon.glyphicon-remove{
+    float:right;
+    margin-top: 3px;
+}
+
+.task-model{
+    height: 30px;
+    border: 1px solid rgb(173, 173, 173);
+    border-radius: 3px;
+    margin-bottom: 3px;
+    padding: 5px;
 }
