@@ -1,9 +1,9 @@
 const factoryFunc = function () {
 
-    const createTask = function(name, category,description) {
+    const createTask = function(name, category) {
         return{
             name,
-            description,
+            description: '',
             category: category
         }
     }

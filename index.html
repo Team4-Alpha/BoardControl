@@ -7,10 +7,15 @@
     <meta http-equiv='X-UA-Compatible' content='ie=edge'>
     <link rel='stylesheet' href='styles/styles.css'>
     <link rel='stylesheet' href='bower_components/bootstrap/dist/css/bootstrap.css'>
+    <link rel='stylesheet' href='qunit-2.4.0.css'>
     <title>BoardControl</title>
 </head>
 
 <body>
+    <div id='qunit'></div>
+    <div id='qunit-fixture'></div>
+    <script src='qunit-2.4.0.css'></script>
+    <script src='Teamwork.UnitTests/functionality/category-actionsTests/addCategory_Should.js'></script>
     <nav class='navbar navbar-inverse'></nav>
     <img src='images/board-control-logo.png' id='logo'>
     <button type='button' id='add-category' class='btn btn-primary' data-toggle='modal' data-target='#category-creation-modal'>Create Category</button>

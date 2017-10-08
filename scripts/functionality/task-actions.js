@@ -1,5 +1,5 @@
 const taskFunc = function (factory, database) {
-    const addTask = function(name, category,description){
+    const addTask = function(name, category){
         const categories = database.categories;
         if (name==='') {
             throw 'You can\'t have tasks with empty name!';
@@ -15,7 +15,7 @@ const taskFunc = function (factory, database) {
                         return;
                     }
                 }
-                const task = factory.createTask(name, category,description);
+                const task = factory.createTask(name, category);
                 categories[i].tasks.push(task);
                 return;
             }
