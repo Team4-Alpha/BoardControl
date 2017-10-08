@@ -10,14 +10,13 @@ const taskFunc = function (factory, database) {
             if (categories[i].name === category) {
                 for (var j = 0; j < categories[i].tasks.length; j++) {
                     if (categories[i].tasks[j].name === name) {
-                        $('#task-name').val('');
+                        $('.task-name').val('');
                         throw 'You can\'t have the same tasks!';
                         return;
                     }
                 }
                 const task = factory.createTask(name, category);
                 categories[i].tasks.push(task);
-                console.log(categories[i]);
                 return;
             }
         }
@@ -35,7 +34,6 @@ const taskFunc = function (factory, database) {
                 }
             }
         }
-        console.log(categories[i]);
     }
 
     return{
