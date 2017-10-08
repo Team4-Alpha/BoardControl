@@ -75,7 +75,7 @@ h2{
 }
 
 .panel-body{
-    padding: 7px!important;
+    padding: 0px!important;
 }
 
 .task-model{
@@ -84,4 +84,8 @@ h2{
     border-radius: 3px;
     margin-bottom: 3px;
     padding: 5px;
+}
+.panel-heading{
+    font-weight:bold;
+    font-size:20px;
 }
