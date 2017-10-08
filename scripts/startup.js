@@ -3,13 +3,22 @@ $(function(){
     const taskName = $('#task-name');
 
     const getName = function(textToBeFiltered){
+        let spaces = 0;
         let i = 0;
         let categoryToBeDeleted = '';
 
         //Taking exactly category name 
-        while (textToBeFiltered[i] !== ' ') {
-            categoryToBeDeleted += textToBeFiltered[i];
-            ++i;
+        while (textToBeFiltered[i]) {
+            if(textToBeFiltered[i] !== ' '){
+                categoryToBeDeleted += textToBeFiltered[i];
+            }
+            if(textToBeFiltered[i] === ' ' && textToBeFiltered[i+1] !== ' '){
+                categoryToBeDeleted += textToBeFiltered[i];
+            }
+            if(textToBeFiltered[i] === ' ' && textToBeFiltered[i+1] === ' '){
+                break;
+            }
+            i++;
         }
         //Im removing the last element because its appending one white-space
         const catPlz = categoryToBeDeleted.substring(0, i-1);
@@ -94,7 +103,7 @@ $(function(){
             $('.delete-category').click(function(event) {
                 const tar = $(event.target.parentElement);
                 categoryToBeDeleted = getName(tar.text());
-
+                
                 container.categoryAct.deleteCategory(categoryToBeDeleted);
                 $(event.target).parent().parent().remove();
             });
