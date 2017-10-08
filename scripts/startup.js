@@ -2,6 +2,20 @@ $(function(){
     const categoryName = $('#category-name');
     const taskName = $('#task-name');
 
+    const getName = function(textToBeFiltered){
+        let i = 0;
+        let categoryToBeDeleted = '';
+
+        //Taking exactly category name 
+        while (textToBeFiltered[i] !== ' ') {
+            categoryToBeDeleted += textToBeFiltered[i];
+            ++i;
+        }
+        //Im removing the last element because its appending one white-space
+        const catPlz = categoryToBeDeleted.substring(0, i-1);
+        return catPlz;
+    }
+
     const board = $('#board');
     $('#create-category'). on('click',()=> {      
         try{
@@ -21,9 +35,12 @@ $(function(){
 
             $('.add-task').on('click',(event) => {
                 try{
-                    const taskName = $(event.target.previousElementSibling);
-                    container.taskAct.addTask(taskName.val());
                     const categoryBody = $(event.target.parentElement.previousElementSibling);
+                    const categoryHeader = categoryBody.prev('.panel-heading').text();
+                    const categoryName = getName(categoryHeader);
+                    const taskName = $(event.target.previousElementSibling);
+                    container.taskAct.addTask(taskName.val(), categoryName);
+                    
     
                     categoryBody.append(`<div class='task-model' data-toggle="modal" data-target="#taskDescriptionModal">${taskName.val()}
                                                 <span class='glyphicon glyphicon-remove delete-task'></span>
@@ -34,7 +51,7 @@ $(function(){
                         
                     tasksModels.on('click',(event) => {
                         thisTaskName = event.target.innerText;
-                        board.append(`<
+                        board.append(`
                         <div id="taskDescriptionModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                          <div class="modal-dialog">
                             <div class="modal-content">
@@ -44,7 +61,7 @@ $(function(){
                               </div>
                               <div class="modal-body">
                               <h4>Description<h4>
-                              <input type="text" class="form-control" id="category-name">
+                              <input type="text" class="form-control" id="description">
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -56,18 +73,9 @@ $(function(){
 
                     $('.delete-task').click(function(e) {
                         const tar = $(e.target.parentElement);
-                        let i = 0;
-                        let taskToBeDeleted = '';
-        
-                        //Taking exactly task name 
-                        while (tar.text()[i] !== ' ') {
-                            taskToBeDeleted += tar.text()[i];
-                            ++i;
-                        }
-                        //Im removing the last element because its appending one white-space
-                        const taskPlz = taskToBeDeleted.substring(0, i-1);
+                        const taskToBeDeleted = {name: getName(tar.text()), description: '', category: categoryName};
                         
-                        container.taskAct.deleteTask(taskPlz);
+                        container.taskAct.deleteTask(taskToBeDeleted);
                         tar.remove();
                     });          
                 }
@@ -77,18 +85,9 @@ $(function(){
             })
             $('.delete-category').click(function(event) {
                 const tar = $(event.target.parentElement);
-                let i = 0;
-                let categoryToBeDeleted = '';
+                categoryToBeDeleted = getName(tar.text());
 
-                //Taking exactly category name 
-                while (tar.text()[i] !== ' ') {
-                    categoryToBeDeleted += tar.text()[i];
-                    ++i;
-                }
-                //Im removing the last element because its appending one white-space
-                const catPlz = categoryToBeDeleted.substring(0, i-1);
-
-                container.categoryAct.deleteCategory(catPlz);
+                container.categoryAct.deleteCategory(categoryToBeDeleted);
                 $(event.target).parent().parent().remove();
             });
         }

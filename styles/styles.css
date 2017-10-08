@@ -74,6 +74,10 @@ h2{
     margin-top: 3px;
 }
 
+.panel-body{
+    padding: 7px!important;
+}
+
 .task-model{
     height: 30px;
     border: 1px solid rgb(173, 173, 173);

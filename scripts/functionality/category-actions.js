@@ -14,8 +14,9 @@ const categoryFunc = function (factory, database) {
                 return;
             }
         }
-        const cat = factory.createCategory(name);
+        const cat = factory.createCategory(name, []);
         categories.push(cat);
+        console.log(cat);
     }
 
     const deleteCategory = function(name){
