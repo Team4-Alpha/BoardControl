@@ -19,12 +19,22 @@ const taskFunc = function (factory, database) {
                 categories[i].tasks.push(task);
                 return;
             }
-        } 
+        }
     }
 
-    const changeDescription = function(){
-
+    const getTask = function(name, category) {
+        const categories = database.categories;
+        for (var i = 0; i < categories.length; i++) {
+            if (categories[i].name === category) {
+                for (var j = 0; j < categories[i].tasks.length; j++) {
+                    if (categories[i].tasks[j].name === name) {
+                        return categories[i].tasks[j];
+                    }
+                }
+            }
+        }
     }
+
 
     const deleteTask = function(task){
         const categories = database.categories;
@@ -41,6 +51,7 @@ const taskFunc = function (factory, database) {
 
     return{
         addTask,
+        getTask,
         deleteTask
     }
 }
