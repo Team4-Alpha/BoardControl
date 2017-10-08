@@ -6,8 +6,7 @@ $(function(){
     $('#create-category'). on('click',()=> {      
         try{
             container.categoryAct.addCategory(categoryName.val());
-            board.append(`<div class='panel panel-default category'> 
-            
+            board.append(`<div class='panel panel-default category'>           
                             <div class='panel-heading'>${categoryName.val()}
                                 <button class='btn btn-danger delete-category'>Delete</button> 
                             </div>
@@ -17,7 +16,8 @@ $(function(){
                                <button type='button' class='btn btn-primary add-task'>Add</button>
                             </div>    
                         </div>`);
-            $('#category-name').val('');
+
+            categoryName.val('');
 
             $('.add-task').on('click',(event) => {
                 try{
@@ -69,9 +69,7 @@ $(function(){
                         
                         container.taskAct.deleteTask(taskPlz);
                         tar.remove();
-                    });
-                    
-                   
+                    });          
                 }
                 catch (taskErr){
                     alert(taskErr);

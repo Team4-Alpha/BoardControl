@@ -9,6 +9,7 @@ const taskFunc = function (factory, database) {
         }
         for (var i = 0; i < tasks.length; i++) {
             if (tasks[i].name === name) {
+                $('#task-name').val('');
                 throw 'You can\'t have the same tasks!';
                 return;
             }
