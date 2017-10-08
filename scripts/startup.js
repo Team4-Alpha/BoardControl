@@ -51,34 +51,25 @@ $(function(){
                     container.taskAct.addTask(taskName.val(), categoryName);
                     
     
-                    categoryBody.append(`<div class='task-model' data-toggle="modal" data-target="#taskDescriptionModal">${taskName.val()}
+                    categoryBody.append(`<div class='task-model' data-toggle="modal" data-target="#task-modal">${taskName.val()}
                                                 <span class='glyphicon glyphicon-remove delete-task'></span>
                                         </div>`);
                     taskName.val('');     
 
-                    const tasksModels =$(categoryBody.children());
+                    const tasksModel = $(categoryBody.children().last());
                         
-                    tasksModels.on('click',(event) => {
+                    tasksModel.on('click',(event) => {
                         thisTaskName = event.target.innerText;
-                        board.append(`
-                        <div id="taskDescriptionModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                         <div class="modal-dialog">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title" id="myModalLabel">${thisTaskName}</h4>
-                              </div>
-                              <div class="modal-body">
-                              <h4>Description<h4>
-                              <input type="text" class="form-control" id="description">
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save</button>
-                              </div>
-                            </div>
-                          </div>`);
-                          
+                        const task = container.taskAct.getTask(thisTaskName, categoryName);
+                        
+                        $('.task-title').text(thisTaskName);
+                        $('#task-description').val(task.description);
+
+                        $('.save-description').on('click', (e) => {
+                            let newDescription = $('#task-description').val();
+                            task.description = newDescription;
+                            console.log(task.description);
+                        })
                     });
 
                     $('.delete-task').click(function(e) {
@@ -96,7 +87,7 @@ $(function(){
             $('.delete-category').click(function(event) {
                 const tar = $(event.target.parentElement);
                 categoryToBeDeleted = getName(tar.text());
-                
+
                 container.categoryAct.deleteCategory(categoryToBeDeleted);
                 $(event.target).parent().parent().remove();
             });
