@@ -75,7 +75,7 @@ h2{
 }
 
 .panel-body{
-    padding: 0px !important;
+    padding-top: 2px !important;
     color: #333;
     border-color: #ddd;  
     background-color: white;
