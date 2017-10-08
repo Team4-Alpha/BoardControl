@@ -1,11 +1,11 @@
 const taskFunc = function (factory, database) {
-
-    const addTask = function(name, category){
+    const addTask = function(name, category,description){
         const categories = database.categories;
         if (name==='') {
             throw 'You can\'t have tasks with empty name!';
             return;
         }
+
         for (var i = 0; i < categories.length; i++) {
             if (categories[i].name === category) {
                 for (var j = 0; j < categories[i].tasks.length; j++) {
@@ -15,12 +15,15 @@ const taskFunc = function (factory, database) {
                         return;
                     }
                 }
-                const task = factory.createTask(name, category);
+                const task = factory.createTask(name, category,description);
                 categories[i].tasks.push(task);
                 return;
             }
-        }
-        
+        } 
+    }
+
+    const changeDescription = function(){
+
     }
 
     const deleteTask = function(task){

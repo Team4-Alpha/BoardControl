@@ -65,11 +65,17 @@ $(function(){
                               </div>
                               <div class="modal-footer">
                                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Save</button>
+                                <button type="button"  id='save-description'  class="btn btn-primary">Save</button>
                               </div>
                             </div>
                           </div>`);
                           
+                          //kato dostypq butona po class , bara i Create buttona na kategoriqta zatova sym mu napravil ID
+                            const saveBtn = $('#save-description')
+                            saveBtn.parent().parent().on('click',(event) => {
+                                
+                                console.log('westcoast')
+                            });
                     });
 
                     $('.delete-task').click(function(e) {
@@ -84,6 +90,7 @@ $(function(){
                     alert(taskErr);
                 }     
             })
+
             $('.delete-category').click(function(event) {
                 const tar = $(event.target.parentElement);
                 categoryToBeDeleted = getName(tar.text());
