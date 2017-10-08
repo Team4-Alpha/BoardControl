@@ -69,6 +69,7 @@ $(function(){
                               </div>
                             </div>
                           </div>`);
+                          
                     });
 
                     $('.delete-task').click(function(e) {
