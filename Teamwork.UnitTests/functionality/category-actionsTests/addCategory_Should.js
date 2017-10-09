@@ -13,15 +13,10 @@ QUnit.test( 'ThrowsExceptionWhenCategoryNameIsEmpty', function( assert ) {
 
   QUnit.test( 'ThrowsExceptionWhenCategoryNameIsTheSame', function( assert ) {
     let database=databaseFunc();
-    let name = 'Category';
-    let categoryMock = function (name) {
-      return{
-          name,
+    let categoryMock ={
+          name: 'Category',
           tasks: []
       }
-    }
     let func1 = function(){categoryFunc(factoryFunc(),database).addCategory('Category')};
-    func1();
-    categoryMock();
     assert.deepEqual(func1,categoryMock);
   });
