@@ -68,7 +68,6 @@ $(function(){
                         $('.save-description').on('click', (e) => {
                             let newDescription = $('#task-description').val();
                             task.description = newDescription;
-                            console.log(task.description);
                         })
                     });
 

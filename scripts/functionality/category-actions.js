@@ -7,7 +7,7 @@ const categoryFunc = function (factory, database) {
             throw 'You can\'t have categories with empty name!';
             return;
         }
-        for (var i = 0; i < categories.length; i++) {
+        for (let i = 0; i < categories.length; i++) {
             if (categories[i].name === name) {                
                 $('#category-name').val('');
                 throw 'You can\'t have categories with the same name!';

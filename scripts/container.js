@@ -9,7 +9,7 @@ const container = (function(){
         factory,
         database,
         categoryAct,
-        taskAct,
+        taskAct
     }
     
 }())

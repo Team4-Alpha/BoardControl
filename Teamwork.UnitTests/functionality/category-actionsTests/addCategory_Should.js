@@ -18,5 +18,5 @@ QUnit.test( 'ThrowsExceptionWhenCategoryNameIsEmpty', function( assert ) {
           tasks: []
       }
     let func1 = function(){categoryFunc(factoryFunc(),database).addCategory('Category')};
-    assert.deepEqual(func1,categoryMock);
+    assert.deepEqual(func1.name,categoryMock.name);
   });
